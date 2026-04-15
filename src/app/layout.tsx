@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Seattle WA Real Estate - Seattle WA Homes For Sale | Zillow",
+  description:
+    "Zillow has 2,263 homes for sale in Seattle WA. View listing photos, review sales history, and use our detailed real estate filters to find the perfect place.",
+  icons: {
+    icon: "/seo/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -23,11 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-white text-zillow-text font-sans">
+        {children}
+      </body>
     </html>
   );
 }
