@@ -2,7 +2,7 @@ import { NavBar } from "@/components/NavBar";
 import { SearchFilterBar } from "@/components/SearchFilterBar";
 import { PropertyCardB } from "@/components/variant-b/PropertyCardB";
 import { AreaNarrativeBanner } from "@/components/variant-b/AreaNarrativeBanner";
-import { MapPlaceholder } from "@/components/MapPlaceholder";
+import { MapPlaceholderB } from "@/components/variant-b/MapPlaceholderB";
 import { SEOContentSections } from "@/components/SEOContentSections";
 import { Footer } from "@/components/Footer";
 import { listings, seattleAreaNarrative } from "@/lib/data";
@@ -15,7 +15,7 @@ export default function VariantB() {
 
       <div className="flex flex-1 overflow-hidden">
         <div className="hidden lg:block lg:w-[45%] xl:w-[42%]">
-          <MapPlaceholder />
+          <MapPlaceholderB />
         </div>
 
         <div className="flex-1 overflow-y-auto border-l border-[#E0E0E6]">
