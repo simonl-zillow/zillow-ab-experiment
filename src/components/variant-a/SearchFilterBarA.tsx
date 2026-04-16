@@ -19,10 +19,14 @@ interface LifestyleFilter {
 }
 
 const lifestyleFilters: LifestyleFilter[] = [
-  { key: "short-commute", emoji: "\u{1F697}", label: "Short Commute (< 15 min)" },
   { key: "walkable", emoji: "\u{1F6B6}", label: "Walkable (70+)" },
-  { key: "near-transit", emoji: "\u{1F687}", label: "Near Transit" },
-  { key: "near-parks", emoji: "\u{1F333}", label: "Near Parks" },
+  { key: "near-schools", emoji: "\u{1F3EB}", label: "Good Schools Nearby" },
+  { key: "near-dining", emoji: "\u{1F37D}\uFE0F", label: "Restaurants & Cafés" },
+  { key: "near-parks", emoji: "\u{1F333}", label: "Parks & Outdoors" },
+  { key: "quiet", emoji: "\u{1F30C}", label: "Quiet Neighborhood" },
+  { key: "nightlife", emoji: "\u{1F378}", label: "Nightlife & Entertainment" },
+  { key: "short-commute", emoji: "\u{1F697}", label: "Short Commute (< 15 min)" },
+  { key: "near-transit", emoji: "\u{1F687}", label: "Near Public Transit" },
 ];
 
 export function SearchFilterBarA({

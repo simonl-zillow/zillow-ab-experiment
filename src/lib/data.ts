@@ -30,7 +30,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "open-house", label: "Open: Sat 2-4pm (4/18)" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "12 min to Downtown", walkScore: 85, nearbyGroceries: 3, nearTransit: true, nearParks: true },
+    lifestyle: { commuteTime: "12 min to Downtown", walkScore: 85, nearbyGroceries: 3, nearTransit: true, nearParks: true, nearSchools: true, nearDining: true, quietNeighborhood: false, nightlife: true },
     vibeLine: "Quiet tree-lined streets where neighbors walk to coffee shops",
   },
   {
@@ -50,7 +50,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "showcase", label: "Showcase" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "22 min to Downtown", walkScore: 62, nearbyGroceries: 2, nearTransit: false, nearParks: true },
+    lifestyle: { commuteTime: "22 min to Downtown", walkScore: 62, nearbyGroceries: 2, nearTransit: false, nearParks: true, nearSchools: true, nearDining: false, quietNeighborhood: true, nightlife: false },
     vibeLine: "Family-friendly cul-de-sacs with wooded trails just steps away",
   },
   {
@@ -70,7 +70,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "open-house", label: "Open: Sat 2-4pm (4/18)" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "15 min to Downtown", walkScore: 74, nearbyGroceries: 2, nearTransit: true, nearParks: false },
+    lifestyle: { commuteTime: "15 min to Downtown", walkScore: 74, nearbyGroceries: 2, nearTransit: true, nearParks: false, nearSchools: false, nearDining: true, quietNeighborhood: false, nightlife: true },
     vibeLine: "Lively mixed-use blocks with weekend farmers markets nearby",
   },
   {
@@ -90,7 +90,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "showcase", label: "Showcase" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "18 min to Downtown", walkScore: 78, nearbyGroceries: 4, nearTransit: true, nearParks: true },
+    lifestyle: { commuteTime: "18 min to Downtown", walkScore: 78, nearbyGroceries: 4, nearTransit: true, nearParks: true, nearSchools: true, nearDining: true, quietNeighborhood: false, nightlife: false },
     vibeLine: "Charming bungalow blocks near the Burke-Gilman Trail",
   },
   {
@@ -110,7 +110,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "price-cut", label: "Price cut: $25,500 (4/12)" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "25 min to Downtown", walkScore: 55, nearbyGroceries: 1, nearTransit: false, nearParks: true },
+    lifestyle: { commuteTime: "25 min to Downtown", walkScore: 55, nearbyGroceries: 1, nearTransit: false, nearParks: true, nearSchools: false, nearDining: false, quietNeighborhood: true, nightlife: false },
     vibeLine: "Waterfront views and sunset walks along Alki Beach",
   },
   {
@@ -130,7 +130,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "showcase", label: "Showcase" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "20 min to Downtown", walkScore: 68, nearbyGroceries: 2, nearTransit: true, nearParks: false },
+    lifestyle: { commuteTime: "20 min to Downtown", walkScore: 68, nearbyGroceries: 2, nearTransit: true, nearParks: false, nearSchools: true, nearDining: true, quietNeighborhood: true, nightlife: false },
     vibeLine: "Quiet tree-lined streets where neighbors walk to coffee shops",
   },
   {
@@ -150,7 +150,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "19 min to Downtown", walkScore: 72, nearbyGroceries: 3, nearTransit: false, nearParks: true },
+    lifestyle: { commuteTime: "19 min to Downtown", walkScore: 72, nearbyGroceries: 3, nearTransit: false, nearParks: true, nearSchools: true, nearDining: true, quietNeighborhood: false, nightlife: false },
     vibeLine: "Lively mixed-use blocks with weekend farmers markets nearby",
   },
   {
@@ -170,7 +170,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "showcase", label: "Showcase" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "14 min to Downtown", walkScore: 81, nearbyGroceries: 2, nearTransit: true, nearParks: true },
+    lifestyle: { commuteTime: "14 min to Downtown", walkScore: 81, nearbyGroceries: 2, nearTransit: true, nearParks: true, nearSchools: false, nearDining: true, quietNeighborhood: true, nightlife: false },
     vibeLine: "Family-friendly cul-de-sacs with wooded trails just steps away",
   },
   {
@@ -190,7 +190,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "showcase", label: "Showcase" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "10 min to Downtown", walkScore: 89, nearbyGroceries: 5, nearTransit: true, nearParks: true },
+    lifestyle: { commuteTime: "10 min to Downtown", walkScore: 89, nearbyGroceries: 5, nearTransit: true, nearParks: true, nearSchools: true, nearDining: true, quietNeighborhood: false, nightlife: true },
     vibeLine: "Charming bungalow blocks near the Burke-Gilman Trail",
   },
   {
@@ -210,7 +210,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "days-on-zillow", label: "1 day on Zillow" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "16 min to Downtown", walkScore: 45, nearbyGroceries: 1, nearTransit: false, nearParks: true },
+    lifestyle: { commuteTime: "16 min to Downtown", walkScore: 45, nearbyGroceries: 1, nearTransit: false, nearParks: true, nearSchools: false, nearDining: false, quietNeighborhood: true, nightlife: false },
     vibeLine: "Waterfront views and sunset walks along Alki Beach",
   },
   {
@@ -230,7 +230,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "5 min to Downtown", walkScore: 96, nearbyGroceries: 6, nearTransit: true, nearParks: false },
+    lifestyle: { commuteTime: "5 min to Downtown", walkScore: 96, nearbyGroceries: 6, nearTransit: true, nearParks: false, nearSchools: false, nearDining: true, quietNeighborhood: false, nightlife: true },
     vibeLine: "Lively mixed-use blocks with weekend farmers markets nearby",
   },
   {
@@ -250,7 +250,7 @@ export const listings: PropertyListing[] = [
     detailUrl: "#",
     badges: [{ type: "new", label: "New - 2 hours ago" }],
     mlsAttribution: "NWMLS as distributed by MLS GRID",
-    lifestyle: { commuteTime: "17 min to Downtown", walkScore: 82, nearbyGroceries: 3, nearTransit: true, nearParks: true },
+    lifestyle: { commuteTime: "17 min to Downtown", walkScore: 82, nearbyGroceries: 3, nearTransit: true, nearParks: true, nearSchools: true, nearDining: true, quietNeighborhood: false, nightlife: false },
     vibeLine: "Quiet tree-lined streets where neighbors walk to coffee shops",
   },
 ];

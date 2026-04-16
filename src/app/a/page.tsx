@@ -15,19 +15,17 @@ function matchesFilters(listing: PropertyListing, filters: Set<string>): boolean
 
   const { lifestyle } = listing;
 
+  if (filters.has("walkable") && lifestyle.walkScore < 70) return false;
+  if (filters.has("near-schools") && !lifestyle.nearSchools) return false;
+  if (filters.has("near-dining") && !lifestyle.nearDining) return false;
+  if (filters.has("near-parks") && !lifestyle.nearParks) return false;
+  if (filters.has("quiet") && !lifestyle.quietNeighborhood) return false;
+  if (filters.has("nightlife") && !lifestyle.nightlife) return false;
   if (filters.has("short-commute")) {
     const minutes = parseInt(lifestyle.commuteTime, 10);
     if (isNaN(minutes) || minutes >= 15) return false;
   }
-  if (filters.has("walkable")) {
-    if (lifestyle.walkScore < 70) return false;
-  }
-  if (filters.has("near-transit")) {
-    if (!lifestyle.nearTransit) return false;
-  }
-  if (filters.has("near-parks")) {
-    if (!lifestyle.nearParks) return false;
-  }
+  if (filters.has("near-transit") && !lifestyle.nearTransit) return false;
 
   return true;
 }

@@ -29,6 +29,10 @@ export interface LifestyleData {
   nearbyGroceries: number;
   nearTransit: boolean;
   nearParks: boolean;
+  nearSchools: boolean;
+  nearDining: boolean;
+  quietNeighborhood: boolean;
+  nightlife: boolean;
 }
 
 export type PropertyBadgeType = "showcase" | "open-house" | "price-cut" | "new" | "3d-tour" | "days-on-zillow";
