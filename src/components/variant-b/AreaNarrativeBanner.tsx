@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function AreaNarrativeBanner({ narrative }: { narrative: string }) {
+export function AreaNarrativeBanner({ location, narrative }: { location: string; narrative: string }) {
   const [dismissed, setDismissed] = useState(false);
 
   if (dismissed) {
@@ -12,7 +12,7 @@ export function AreaNarrativeBanner({ narrative }: { narrative: string }) {
   return (
     <div className="relative mx-4 mb-4 rounded-r-lg border-l-[3px] border-l-[#006AFF] bg-[#FAFAF5] px-5 py-4">
       <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[1.5px] text-[#767680]">
-        About this area
+        About {location}
       </p>
 
       <p

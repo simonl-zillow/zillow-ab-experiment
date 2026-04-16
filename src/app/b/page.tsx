@@ -35,7 +35,7 @@ export default function VariantB() {
           </div>
 
           {/* Variant B: Area Narrative Banner */}
-          <AreaNarrativeBanner narrative={seattleAreaNarrative} />
+          <AreaNarrativeBanner location="Seattle, WA" narrative={seattleAreaNarrative} />
 
           <div className="grid grid-cols-1 gap-4 px-4 pb-4 md:grid-cols-2">
             {listings.map((listing) => (
