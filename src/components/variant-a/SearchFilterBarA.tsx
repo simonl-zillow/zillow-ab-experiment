@@ -112,13 +112,9 @@ export function SearchFilterBarA({
             )}
           >
             <span>{lifestyleLabel}</span>
+            <span className="rounded bg-[#F5D6C3] px-1.5 py-px text-[10px] font-bold text-[#8B4513]">New</span>
             <ChevronDownIcon className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180", activeCount > 0 ? "text-[#006AFF]" : "text-[#585863]")} />
           </button>
-
-          {/* New badge */}
-          <span className="shrink-0 rounded-md bg-[#F5D6C3] px-2 py-0.5 text-[12px] font-bold text-[#8B4513]">
-            New
-          </span>
         </div>
 
         <div className="flex-1" />
