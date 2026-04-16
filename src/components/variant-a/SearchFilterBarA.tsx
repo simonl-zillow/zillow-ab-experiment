@@ -32,7 +32,9 @@ export function SearchFilterBarA({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
 
   const handleToggle = useCallback(
     (key: string) => {
@@ -50,9 +52,21 @@ export function SearchFilterBarA({
     [onFilterChange]
   );
 
+  const handleOpenToggle = useCallback(() => {
+    if (!isOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setDropdownPos({ top: rect.bottom + 4, left: rect.left });
+    }
+    setIsOpen((prev) => !prev);
+  }, [isOpen]);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (
+        dropdownRef.current && !dropdownRef.current.contains(target) &&
+        buttonRef.current && !buttonRef.current.contains(target)
+      ) {
         setIsOpen(false);
       }
     }
@@ -81,29 +95,21 @@ export function SearchFilterBarA({
             </button>
           ))}
 
-          {/* Lifestyle filter pill + dropdown */}
-          <div className="relative" ref={dropdownRef}>
-            <button type="button" onClick={() => setIsOpen((prev) => !prev)} className={cn("flex h-[36px] shrink-0 cursor-pointer items-center gap-1 rounded-full border px-3.5 text-[13px] font-semibold transition-colors", activeCount > 0 ? "border-[#006AFF] bg-[#EBF4FF] text-[#006AFF]" : "border-[#CCCCCC] bg-white text-[#2A2A33] hover:bg-[#F7F7F9]")}>
-              <span>{lifestyleLabel}</span>
-              <ChevronDownIcon className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180", activeCount > 0 ? "text-[#006AFF]" : "text-[#585863]")} />
-            </button>
-
-            {isOpen && (
-              <div className="absolute top-[calc(100%+4px)] left-0 z-50 min-w-[260px] rounded-xl border border-[#E0E0E6] bg-white p-4 shadow-lg">
-                {lifestyleFilters.map((filter, index) => (
-                  <div key={filter.key} className={cn("flex items-center justify-between py-2", index < lifestyleFilters.length - 1 && "border-b border-[#E0E0E6]")}>
-                    <div className="flex items-center gap-2">
-                      <span className="text-base">{filter.emoji}</span>
-                      <span className="text-[13px] font-medium text-[#2A2A33]">{filter.label}</span>
-                    </div>
-                    <button type="button" role="switch" aria-checked={activeFilters.has(filter.key)} onClick={() => handleToggle(filter.key)} className={cn("relative h-5 w-10 shrink-0 rounded-full transition-colors", activeFilters.has(filter.key) ? "bg-[#006AFF]" : "bg-[#E0E0E6]")}>
-                      <span className={cn("absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform", activeFilters.has(filter.key) && "translate-x-5")} />
-                    </button>
-                  </div>
-                ))}
-              </div>
+          {/* Lifestyle filter pill */}
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={handleOpenToggle}
+            className={cn(
+              "flex h-[36px] shrink-0 cursor-pointer items-center gap-1 rounded-full border px-3.5 text-[13px] font-semibold transition-colors",
+              activeCount > 0
+                ? "border-[#006AFF] bg-[#EBF4FF] text-[#006AFF]"
+                : "border-[#CCCCCC] bg-white text-[#2A2A33] hover:bg-[#F7F7F9]"
             )}
-          </div>
+          >
+            <span>{lifestyleLabel}</span>
+            <ChevronDownIcon className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180", activeCount > 0 ? "text-[#006AFF]" : "text-[#585863]")} />
+          </button>
         </div>
 
         <div className="flex-1" />
@@ -113,6 +119,36 @@ export function SearchFilterBarA({
           <HeartIcon className="h-4 w-4" /><span>41</span>
         </button>
       </div>
+
+      {/* Lifestyle dropdown — fixed position to escape overflow clipping */}
+      {isOpen && (
+        <div
+          ref={dropdownRef}
+          className="fixed z-[9999] min-w-[260px] rounded-xl border border-[#E0E0E6] bg-white p-4 shadow-lg"
+          style={{ top: dropdownPos.top, left: dropdownPos.left }}
+        >
+          {lifestyleFilters.map((filter, index) => (
+            <div key={filter.key} className={cn("flex items-center justify-between py-2.5", index < lifestyleFilters.length - 1 && "border-b border-[#E0E0E6]")}>
+              <div className="flex items-center gap-2.5">
+                <span className="text-base">{filter.emoji}</span>
+                <span className="text-[13px] font-medium text-[#2A2A33]">{filter.label}</span>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={activeFilters.has(filter.key)}
+                onClick={() => handleToggle(filter.key)}
+                className={cn(
+                  "relative h-5 w-10 shrink-0 cursor-pointer rounded-full transition-colors",
+                  activeFilters.has(filter.key) ? "bg-[#006AFF]" : "bg-[#E0E0E6]"
+                )}
+              >
+                <span className={cn("absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform", activeFilters.has(filter.key) && "translate-x-5")} />
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
