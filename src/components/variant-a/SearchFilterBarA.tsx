@@ -19,7 +19,7 @@ interface LifestyleFilter {
 }
 
 const lifestyleFilters: LifestyleFilter[] = [
-  { key: "walkable", emoji: "\u{1F6B6}", label: "Walkable (70+)" },
+  { key: "walkable", emoji: "\u{1F6B6}", label: "Very Walkable" },
   { key: "near-schools", emoji: "\u{1F3EB}", label: "Good Schools Nearby" },
   { key: "near-dining", emoji: "\u{1F37D}\uFE0F", label: "Restaurants & Cafés" },
   { key: "near-parks", emoji: "\u{1F333}", label: "Parks & Outdoors" },
