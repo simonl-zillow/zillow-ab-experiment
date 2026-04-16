@@ -1,7 +1,11 @@
 "use client";
 
 interface MapTooltipAProps {
+  imageUrl: string;
   price: string;
+  beds: number;
+  baths: number;
+  sqft: string;
   address: string;
   lifestyle: {
     commuteTime: string;
@@ -18,32 +22,68 @@ function getWalkabilityLabel(score: number): string {
   return "Car-Dependent";
 }
 
-export function MapTooltipA({ price, address, lifestyle, position, onClose }: MapTooltipAProps) {
+export function MapTooltipA({
+  imageUrl,
+  price,
+  beds,
+  baths,
+  sqft,
+  address,
+  lifestyle,
+  position,
+  onClose,
+}: MapTooltipAProps) {
   return (
     <div
-      className="fixed z-[9999] max-w-[260px] rounded-lg border border-[#E0E0E6] bg-white p-3 shadow-lg"
+      className="fixed z-[9999] w-[260px] overflow-hidden rounded-lg border border-[#E0E0E6] bg-white shadow-lg"
       style={{ left: position.x, top: position.y }}
     >
-      <button type="button" onClick={onClose} aria-label="Close tooltip" className="absolute top-1.5 right-1.5 flex size-5 items-center justify-center rounded-full text-[#999] hover:bg-[#F0F0F5] hover:text-[#585863]">
-        &#10005;
-      </button>
-
-      <p className="text-base font-bold text-[#2A2A33]">{price}</p>
-      <p className="text-[13px] text-[#585863]">{address}</p>
-
-      <div className="my-2 border-t border-[#E0E0E6]" />
-
-      <div className="flex items-center justify-between py-1 text-[13px]">
-        <span className="text-[#585863]">Commute</span>
-        <span className="font-semibold text-[#2A2A33]">{lifestyle.commuteTime}</span>
+      {/* Property image */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imageUrl}
+          alt={address}
+          className="size-full object-cover"
+        />
       </div>
-      <div className="flex items-center justify-between py-1 text-[13px]">
-        <span className="text-[#585863]">Walkability</span>
-        <span className="font-semibold text-[#2A2A33]">{getWalkabilityLabel(lifestyle.walkScore)}</span>
-      </div>
-      <div className="flex items-center justify-between py-1 text-[13px]">
-        <span className="text-[#585863]">Nearby</span>
-        <span className="font-semibold text-[#2A2A33]">{lifestyle.nearbyAmenity}</span>
+
+      {/* Content */}
+      <div className="p-3">
+        {/* Price */}
+        <p className="text-[15px] font-bold text-[#2A2A33]">{price}</p>
+
+        {/* Stats */}
+        <p className="text-[12px] text-[#2A2A33]">
+          <span className="font-semibold">{beds}</span>
+          <span className="text-[#585863]"> bds</span>
+          <span className="mx-1 text-[#CCCCCC]">|</span>
+          <span className="font-semibold">{baths}</span>
+          <span className="text-[#585863]"> ba</span>
+          <span className="mx-1 text-[#CCCCCC]">|</span>
+          <span className="font-semibold">{sqft}</span>
+          <span className="text-[#585863]"> sqft</span>
+        </p>
+
+        {/* Address */}
+        <p className="mt-0.5 truncate text-[12px] text-[#585863]">{address}</p>
+
+        {/* Divider */}
+        <div className="my-2 border-t border-[#E0E0E6]" />
+
+        {/* Lifestyle rows */}
+        <div className="flex items-center justify-between py-0.5 text-[12px]">
+          <span className="text-[#585863]">🚗 Commute</span>
+          <span className="font-semibold text-[#2A2A33]">{lifestyle.commuteTime}</span>
+        </div>
+        <div className="flex items-center justify-between py-0.5 text-[12px]">
+          <span className="text-[#585863]">🚶 Walkability</span>
+          <span className="font-semibold text-[#2A2A33]">{getWalkabilityLabel(lifestyle.walkScore)}</span>
+        </div>
+        <div className="flex items-center justify-between py-0.5 text-[12px]">
+          <span className="text-[#585863]">📍 Nearby</span>
+          <span className="font-semibold text-[#2A2A33]">{lifestyle.nearbyAmenity}</span>
+        </div>
       </div>
     </div>
   );

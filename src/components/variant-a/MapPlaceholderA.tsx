@@ -9,40 +9,52 @@ interface MapPin {
   lng: number;
   price: string;
   address: string;
+  imageUrl: string;
+  beds: number;
+  baths: number;
+  sqft: string;
   commuteTime: string;
   walkScore: number;
   nearbyAmenity: string;
 }
 
+const IMG1 = "https://photos.zillowstatic.com/fp/0909f981c6f756b3365ea2111c9209fe-p_e.webp";
+const IMG2 = "https://photos.zillowstatic.com/fp/a0279b0a811ac57b50a78fd6659bacc9-p_e.webp";
+const IMG3 = "https://photos.zillowstatic.com/fp/2a306b6d91d93a8254132f4fd3e0d7f9-p_e.webp";
+
 const mapPins: MapPin[] = [
-  { lat: 47.6145, lng: -122.3185, price: "$1.2M", address: "328 26th Ave, Seattle", commuteTime: "12 min by car", walkScore: 85, nearbyAmenity: "Whole Foods, Cal Anderson Park" },
-  { lat: 47.6280, lng: -122.3540, price: "$850K", address: "132 NW 143rd St, Seattle", commuteTime: "22 min by car", walkScore: 62, nearbyAmenity: "QFC, Carkeek Park" },
-  { lat: 47.6060, lng: -122.3320, price: "$599K", address: "1420 Terry Ave #2104", commuteTime: "5 min by car", walkScore: 96, nearbyAmenity: "Trader Joe's, Pike Place" },
-  { lat: 47.6350, lng: -122.2820, price: "$1.5M", address: "7341 B 21st Ave NE", commuteTime: "18 min by car", walkScore: 78, nearbyAmenity: "PCC, U Village" },
-  { lat: 47.6530, lng: -122.3470, price: "$475K", address: "5711 Phinney Ave N", commuteTime: "17 min by car", walkScore: 82, nearbyAmenity: "Fred Meyer, Green Lake" },
-  { lat: 47.5920, lng: -122.2870, price: "$835K", address: "3321 35th Ave S", commuteTime: "15 min by car", walkScore: 74, nearbyAmenity: "Safeway, Genesee Park" },
-  { lat: 47.6680, lng: -122.3840, price: "$745K", address: "6318 41st Ave SW #D", commuteTime: "20 min by car", walkScore: 68, nearbyAmenity: "Ballard Market, Golden Gardens" },
-  { lat: 47.6190, lng: -122.3620, price: "$309K", address: "4222 Beach Dr SW", commuteTime: "25 min by car", walkScore: 55, nearbyAmenity: "Thriftway, Alki Beach" },
-  { lat: 47.6420, lng: -122.3250, price: "$1.1M", address: "928 34th Ave", commuteTime: "10 min by car", walkScore: 89, nearbyAmenity: "PCC, Volunteer Park" },
-  { lat: 47.5810, lng: -122.3870, price: "$899K", address: "2644 34th Ave W", commuteTime: "14 min by car", walkScore: 81, nearbyAmenity: "Metropolitan Market, Discovery Park" },
-  { lat: 47.6750, lng: -122.3130, price: "$3.5M", address: "3038 E Laurelhurst Dr", commuteTime: "16 min by car", walkScore: 45, nearbyAmenity: "QFC, Laurelhurst Beach" },
-  { lat: 47.6580, lng: -122.3050, price: "$1.3M", address: "2200 41st Ave SW", commuteTime: "19 min by car", walkScore: 72, nearbyAmenity: "Safeway, Salmon Bay Park" },
-  { lat: 47.6040, lng: -122.3730, price: "$525K", address: "4222 Beach Dr SW #202", commuteTime: "25 min by car", walkScore: 55, nearbyAmenity: "Thriftway, Alki Beach" },
-  { lat: 47.6890, lng: -122.3260, price: "$950K", address: "132 NW 143rd St", commuteTime: "28 min by car", walkScore: 48, nearbyAmenity: "Safeway, Carkeek Park" },
-  { lat: 47.5720, lng: -122.3550, price: "$18.7M", address: "3038 Laurelhurst Dr", commuteTime: "20 min by car", walkScore: 52, nearbyAmenity: "West Seattle Thriftway, Lincoln Park" },
-  { lat: 47.6480, lng: -122.3950, price: "$650K", address: "6318 41st Ave SW", commuteTime: "24 min by car", walkScore: 58, nearbyAmenity: "Safeway, Discovery Park" },
-  { lat: 47.5960, lng: -122.3150, price: "$420K", address: "1420 Terry Ave", commuteTime: "5 min by car", walkScore: 96, nearbyAmenity: "Whole Foods, Denny Park" },
-  { lat: 47.6310, lng: -122.3690, price: "$780K", address: "2644 34th Ave W", commuteTime: "14 min by car", walkScore: 81, nearbyAmenity: "QFC, Kerry Park" },
-  { lat: 47.6710, lng: -122.3370, price: "$1.6M", address: "928 34th Ave", commuteTime: "20 min by car", walkScore: 76, nearbyAmenity: "Ballard Market, Golden Gardens" },
-  { lat: 47.6550, lng: -122.3580, price: "$690K", address: "5711 Phinney Ave N", commuteTime: "17 min by car", walkScore: 82, nearbyAmenity: "PCC, Woodland Park" },
-  { lat: 47.5850, lng: -122.3420, price: "$1.4M", address: "2200 41st Ave SW", commuteTime: "22 min by car", walkScore: 60, nearbyAmenity: "Trader Joe's, Lincoln Park" },
-  { lat: 47.6620, lng: -122.2980, price: "$570K", address: "7341 21st Ave NE", commuteTime: "18 min by car", walkScore: 78, nearbyAmenity: "QFC, Ravenna Park" },
-  { lat: 47.6100, lng: -122.2900, price: "$2.1M", address: "3038 Laurelhurst Dr NE", commuteTime: "16 min by car", walkScore: 45, nearbyAmenity: "QFC, Laurelhurst Beach" },
-  { lat: 47.6400, lng: -122.3780, price: "$810K", address: "132 Queen Anne Ave", commuteTime: "12 min by car", walkScore: 84, nearbyAmenity: "Metropolitan Market, Kerry Park" },
+  { lat: 47.6145, lng: -122.3185, price: "$1,199,000", address: "328 26th Ave, Seattle, WA", imageUrl: IMG1, beds: 5, baths: 2, sqft: "2,680", commuteTime: "12 min by car", walkScore: 85, nearbyAmenity: "Whole Foods, Cal Anderson Park" },
+  { lat: 47.6280, lng: -122.3540, price: "$850,000", address: "132 NW 143rd St, Seattle, WA", imageUrl: IMG2, beds: 4, baths: 2, sqft: "2,070", commuteTime: "22 min by car", walkScore: 62, nearbyAmenity: "QFC, Carkeek Park" },
+  { lat: 47.6060, lng: -122.3320, price: "$599,000", address: "1420 Terry Ave #2104, Seattle", imageUrl: IMG3, beds: 1, baths: 1, sqft: "740", commuteTime: "5 min by car", walkScore: 96, nearbyAmenity: "Trader Joe's, Pike Place" },
+  { lat: 47.6350, lng: -122.2820, price: "$1,199,000", address: "7341 B 21st Ave NE, Seattle", imageUrl: IMG1, beds: 3, baths: 3, sqft: "1,961", commuteTime: "18 min by car", walkScore: 78, nearbyAmenity: "PCC, U Village" },
+  { lat: 47.6530, lng: -122.3470, price: "$475,000", address: "5711 Phinney Ave N, Seattle", imageUrl: IMG2, beds: 2, baths: 1, sqft: "867", commuteTime: "17 min by car", walkScore: 82, nearbyAmenity: "Fred Meyer, Green Lake" },
+  { lat: 47.5920, lng: -122.2870, price: "$835,000", address: "3321 35th Ave S, Seattle, WA", imageUrl: IMG3, beds: 3, baths: 1, sqft: "960", commuteTime: "15 min by car", walkScore: 74, nearbyAmenity: "Safeway, Genesee Park" },
+  { lat: 47.6680, lng: -122.3840, price: "$745,000", address: "6318 41st Ave SW #D, Seattle", imageUrl: IMG1, beds: 3, baths: 3, sqft: "1,444", commuteTime: "20 min by car", walkScore: 68, nearbyAmenity: "Ballard Market, Golden Gardens" },
+  { lat: 47.6190, lng: -122.3620, price: "$309,000", address: "4222 Beach Dr SW, Seattle, WA", imageUrl: IMG2, beds: 2, baths: 2, sqft: "970", commuteTime: "25 min by car", walkScore: 55, nearbyAmenity: "Thriftway, Alki Beach" },
+  { lat: 47.6420, lng: -122.3250, price: "$1,525,000", address: "928 34th Ave, Seattle, WA", imageUrl: IMG3, beds: 3, baths: 3, sqft: "2,017", commuteTime: "10 min by car", walkScore: 89, nearbyAmenity: "PCC, Volunteer Park" },
+  { lat: 47.5810, lng: -122.3870, price: "$899,950", address: "2644 34th Ave W, Seattle, WA", imageUrl: IMG1, beds: 3, baths: 3, sqft: "1,083", commuteTime: "14 min by car", walkScore: 81, nearbyAmenity: "Metropolitan Market, Discovery Park" },
+  { lat: 47.6750, lng: -122.3130, price: "$18,750,000", address: "3038 E Laurelhurst Dr NE", imageUrl: IMG2, beds: 6, baths: 10, sqft: "11,271", commuteTime: "16 min by car", walkScore: 45, nearbyAmenity: "QFC, Laurelhurst Beach" },
+  { lat: 47.6580, lng: -122.3050, price: "$1,575,000", address: "2200 41st Ave SW, Seattle", imageUrl: IMG3, beds: 4, baths: 3, sqft: "2,420", commuteTime: "19 min by car", walkScore: 72, nearbyAmenity: "Safeway, Salmon Bay Park" },
+  { lat: 47.6040, lng: -122.3730, price: "$525,000", address: "4222 Beach Dr SW #202", imageUrl: IMG1, beds: 2, baths: 2, sqft: "970", commuteTime: "25 min by car", walkScore: 55, nearbyAmenity: "Thriftway, Alki Beach" },
+  { lat: 47.6890, lng: -122.3260, price: "$950,000", address: "132 NW 143rd St, Seattle", imageUrl: IMG2, beds: 4, baths: 2, sqft: "2,070", commuteTime: "28 min by car", walkScore: 48, nearbyAmenity: "Safeway, Carkeek Park" },
+  { lat: 47.5720, lng: -122.3550, price: "$1,400,000", address: "2200 41st Ave SW, Seattle", imageUrl: IMG3, beds: 4, baths: 3, sqft: "2,420", commuteTime: "20 min by car", walkScore: 52, nearbyAmenity: "Thriftway, Lincoln Park" },
+  { lat: 47.6480, lng: -122.3950, price: "$650,000", address: "6318 41st Ave SW, Seattle", imageUrl: IMG1, beds: 3, baths: 3, sqft: "1,444", commuteTime: "24 min by car", walkScore: 58, nearbyAmenity: "Safeway, Discovery Park" },
+  { lat: 47.5960, lng: -122.3150, price: "$420,000", address: "1420 Terry Ave, Seattle, WA", imageUrl: IMG2, beds: 1, baths: 1, sqft: "740", commuteTime: "5 min by car", walkScore: 96, nearbyAmenity: "Whole Foods, Denny Park" },
+  { lat: 47.6310, lng: -122.3690, price: "$780,000", address: "2644 34th Ave W, Seattle", imageUrl: IMG3, beds: 3, baths: 3, sqft: "1,083", commuteTime: "14 min by car", walkScore: 81, nearbyAmenity: "QFC, Kerry Park" },
+  { lat: 47.6710, lng: -122.3370, price: "$1,600,000", address: "928 34th Ave, Seattle, WA", imageUrl: IMG1, beds: 3, baths: 3, sqft: "2,017", commuteTime: "20 min by car", walkScore: 76, nearbyAmenity: "Ballard Market, Golden Gardens" },
+  { lat: 47.6550, lng: -122.3580, price: "$690,000", address: "5711 Phinney Ave N, Seattle", imageUrl: IMG2, beds: 2, baths: 1, sqft: "867", commuteTime: "17 min by car", walkScore: 82, nearbyAmenity: "PCC, Woodland Park" },
+  { lat: 47.5850, lng: -122.3420, price: "$1,400,000", address: "2200 41st Ave SW, Seattle", imageUrl: IMG3, beds: 4, baths: 3, sqft: "2,420", commuteTime: "22 min by car", walkScore: 60, nearbyAmenity: "Trader Joe's, Lincoln Park" },
+  { lat: 47.6620, lng: -122.2980, price: "$570,000", address: "7341 21st Ave NE, Seattle", imageUrl: IMG1, beds: 3, baths: 3, sqft: "1,961", commuteTime: "18 min by car", walkScore: 78, nearbyAmenity: "QFC, Ravenna Park" },
+  { lat: 47.6100, lng: -122.2900, price: "$2,100,000", address: "3038 Laurelhurst Dr NE", imageUrl: IMG2, beds: 6, baths: 10, sqft: "11,271", commuteTime: "16 min by car", walkScore: 45, nearbyAmenity: "QFC, Laurelhurst Beach" },
+  { lat: 47.6400, lng: -122.3780, price: "$810,000", address: "132 Queen Anne Ave, Seattle", imageUrl: IMG3, beds: 3, baths: 2, sqft: "1,444", commuteTime: "12 min by car", walkScore: 84, nearbyAmenity: "Metropolitan Market, Kerry Park" },
 ];
 
 interface TooltipState {
+  imageUrl: string;
   price: string;
+  beds: number;
+  baths: number;
+  sqft: string;
   address: string;
   lifestyle: {
     commuteTime: string;
@@ -94,14 +106,14 @@ export function MapPlaceholderA() {
       mapPins.forEach((pin) => {
         const icon = L.divIcon({
           className: "zillow-price-marker",
-          html: `<div class="zillow-pin"><span class="zillow-pin-dot"></span>${pin.price}</div>`,
+          html: `<div class="zillow-pin"><span class="zillow-pin-dot"></span>${pin.price.replace(/,\d{3}$/, "K").replace(/,000,000$/, "M").replace(/(\d),(\d{3}),(\d{3})$/, "$1.$2M")}</div>`,
           iconSize: [0, 0],
           iconAnchor: [0, 0],
         });
 
         const marker = L.marker([pin.lat, pin.lng], { icon }).addTo(map);
 
-        // Hover → show lifestyle tooltip
+        // Hover → show lifestyle tooltip with image
         marker.on("mouseover", (e) => {
           const containerPoint = map.latLngToContainerPoint(e.latlng);
           const mapContainer = mapRef.current;
@@ -109,18 +121,34 @@ export function MapPlaceholderA() {
 
           const rect = mapContainer.getBoundingClientRect();
 
+          // Position tooltip so it doesn't overflow the viewport
+          const tooltipWidth = 260;
+          const tooltipHeight = 320;
+          let x = rect.left + containerPoint.x + 14;
+          let y = rect.top + containerPoint.y - tooltipHeight / 2;
+
+          // Keep within screen bounds
+          if (x + tooltipWidth > window.innerWidth) {
+            x = rect.left + containerPoint.x - tooltipWidth - 14;
+          }
+          if (y < 60) y = 60;
+          if (y + tooltipHeight > window.innerHeight) {
+            y = window.innerHeight - tooltipHeight - 10;
+          }
+
           setTooltip({
+            imageUrl: pin.imageUrl,
             price: pin.price,
+            beds: pin.beds,
+            baths: pin.baths,
+            sqft: pin.sqft,
             address: pin.address,
             lifestyle: {
               commuteTime: pin.commuteTime,
               walkScore: pin.walkScore,
               nearbyAmenity: pin.nearbyAmenity,
             },
-            position: {
-              x: rect.left + containerPoint.x + 12,
-              y: rect.top + containerPoint.y - 10,
-            },
+            position: { x, y },
           });
         });
 
@@ -129,7 +157,6 @@ export function MapPlaceholderA() {
         });
       });
 
-      // Tap elsewhere on mobile → dismiss
       map.on("click", () => {
         setTooltip(null);
       });
@@ -222,12 +249,10 @@ export function MapPlaceholderA() {
 
       <div ref={mapRef} className="h-full w-full" />
 
-      {/* Homes count badge */}
       <div className="absolute top-3 left-3 z-[1000] rounded-md bg-white px-3 py-1.5 text-[13px] font-semibold text-[#2A2A33] shadow-md">
         502 of 4,163 homes
       </div>
 
-      {/* Schools + Draw buttons */}
       <div className="absolute top-3 left-[200px] z-[1000] flex items-center gap-2">
         <button type="button" className="rounded-full border border-[#CCCCCC] bg-white px-3 py-1 text-[12px] font-semibold text-[#2A2A33] shadow-sm hover:bg-[#F7F7F9]">
           Schools <span className="text-[#585863]">▾</span>
@@ -237,22 +262,23 @@ export function MapPlaceholderA() {
         </button>
       </div>
 
-      {/* Map type toggle */}
       <div className="absolute bottom-8 left-3 z-[1000] rounded-md bg-white px-3 py-1.5 text-[12px] font-semibold text-[#2A2A33] shadow-md cursor-pointer hover:bg-[#F7F7F9]">
         Map ▾
       </div>
 
-      {/* Loading overlay */}
       {!loaded && (
         <div className="absolute inset-0 z-[999] flex items-center justify-center bg-[#E5E3DF]">
           <div className="text-sm text-[#585863]">Loading map…</div>
         </div>
       )}
 
-      {/* Lifestyle Tooltip — appears on pin hover */}
       {tooltip && (
         <MapTooltipA
+          imageUrl={tooltip.imageUrl}
           price={tooltip.price}
+          beds={tooltip.beds}
+          baths={tooltip.baths}
+          sqft={tooltip.sqft}
           address={tooltip.address}
           lifestyle={tooltip.lifestyle}
           position={tooltip.position}
