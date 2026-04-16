@@ -132,7 +132,7 @@ export function MapPlaceholderB() {
 
         const marker = L.marker([pin.lat, pin.lng], { icon }).addTo(map);
 
-        marker.on("click", (e) => {
+        marker.on("mouseover", (e) => {
           const containerPoint = map.latLngToContainerPoint(e.latlng);
           const mapContainer = mapRef.current;
           if (!mapContainer) return;
@@ -166,6 +166,10 @@ export function MapPlaceholderB() {
             areaCharacter: character,
             position: { x, y },
           });
+        });
+
+        marker.on("mouseout", () => {
+          setTooltip(null);
         });
       });
 
